@@ -18,7 +18,7 @@ app.use(helmet());
 
 // Set up mongoose connection
 var mongoose = require('mongoose');
-var dev_db_url = 'mongodb://eustace1:Bestdb101@ds113942.mlab.com:13942/sproute';
+var dev_db_url = 'mongodb://<username>:<password>.mlab.com:13942/sproute';
 var mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
