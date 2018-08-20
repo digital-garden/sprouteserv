@@ -1,0 +1,28 @@
+extends layout
+
+block content
+
+  h1 Delete Species: #{species.name}
+  
+  if species_plants.length
+  
+    p #[strong Delete the following plants before attempting to delete this species.]
+  
+    div(style='margin-left:20px;margin-top:20px')
+
+      h4 Plants
+    
+      dl
+      each plant in species_plants
+        dt 
+          a(href=plant.url) #{plant.title}
+        dd #{plant.summary}
+
+  else
+    p Do you really want to delete this Species?
+    
+    form(method='POST' action='')
+      div.form-group
+        input#id.form-control(type='hidden',name='id', required='true', value=species._id )
+
+      button.btn.btn-primary(type='submit') Delete

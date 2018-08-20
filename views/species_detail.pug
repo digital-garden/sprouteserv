@@ -1,0 +1,24 @@
+extends layout
+
+block content
+
+  h1 Species: #{species.name}
+  
+  div(style='margin-left:20px;margin-top:20px')
+
+    h4 Plants
+    
+    dl
+    each plant in species_plants
+      dt 
+        a(href=plant.url) #{plant.title}
+      dd #{plant.summary}
+
+    else
+      p This species has no plants.
+      
+  hr
+  p
+    a(href=species.url+'/delete') Delete species
+  p
+    a(href=species.url+'/update') Update species

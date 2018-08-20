@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1 #{title}: #{plant.title}
+  
+  p #[strong Species:] 
+    a(href=plant.species.url) #{plant.species.name}
+  p #[strong Soil:] #{plant.soilType}
+  p #[strong Sun:] #{plant.sunType}
+  p #[strong Water:] #{plant.waterType}
+  p #[strong Notes:] #{plant.notes}
+  hr
+  p
+    a(href=plant.url+'/delete') Delete Plant
+  p
+    a(href=plant.url+'/update') Update Plant

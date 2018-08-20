@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1= title
+  
+  ul
+  each plant in plant_list
+    li 
+      a(href=plant.url) #{plant.title}
+
+  else
+    li There are no plants.

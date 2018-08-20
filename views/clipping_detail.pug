@@ -1,0 +1,25 @@
+extends layout
+
+block content
+
+  h1 Clipping: #{clipping.name}
+  p #{clipping.lifespan}
+  
+  div(style='margin-left:20px;margin-top:20px')
+
+    h4 Plants
+    
+    dl
+    each plant in clipping_plants
+      dt 
+        a(href=plant.url) #{plant.title}
+      dd #{plant.summary}
+
+    else
+      p This clipping has no plants.
+      
+  hr
+  p
+    a(href=clipping.url+'/delete') Delete clipping
+  p
+    a(href=clipping.url+'/update') Update clipping

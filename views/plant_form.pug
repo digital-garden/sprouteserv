@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  h1= title
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='title') Title:
+      input#title.form-control(type='text', placeholder='Name of plant' name='title' required='true' value=(undefined===plant ? '' : plant.title))
+    div.form-group
+      label(for='species') Species:
+      select#species.form-control(type='select', placeholder='Select species' name='species')
+        for species in speciess
+          if plant
+            option(value=species._id selected=(species._id.toString()==plant.species._id.toString() ? 'selected' : false) ) #{species.name}
+          else
+            option(value=species._id) #{species.name}
+    div.form-group
+      label(for='soilType') soilType:
+      input#soilType.form-control(type='textarea', placeholder='soilType' name='soilType' value=(undefined===plant ? '' : plant.soilType))
+    div.form-group
+      label(for='sunType') sunType:
+      input#sunType.form-control(type='textarea', placeholder='sunType' name='sunType' value=(undefined===plant ? '' : plant.sunType))
+    div.form-group
+      label(for='waterType') waterType:
+      input#waterType.form-control(type='textarea', placeholder='waterType' name='waterType' value=(undefined===plant ? '' : plant.waterType))
+    div.form-group
+      label(for='notes') notes:
+      input#notes.form-control(type='textarea', placeholder='notes' name='notes' value=(undefined===plant ? '' : plant.notes)) 
+    button.btn.btn-primary(type='submit') Submit
+
+  if errors 
+    ul
+      for error in errors
+        li!= error.msg
